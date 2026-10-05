@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r}
+```{r, include=FALSE}
 # Import libraries or install packages
 
 #install.packages('tidyverse')
@@ -34,13 +34,13 @@ library('table1')
 
 
 
-```{r}
+```{r, include=FALSE}
 # Read in data
 
 mydf <- read_csv(file = file.choose())
 
 # Full view of data
-print(mydf, n=150)
+#print(mydf, n=150)
 
 # Quick view 
 mydf
@@ -78,6 +78,7 @@ table1(~ IQ | Smelter, data = mydf)
 
 
 
+
 ```{r update}
 # 3.	After a brief conversation with the primary investigator, that you find out one individual who had an IQ value of “999” was in fact supposed to have a value of “99”. Make the change to this observation in a code chunk, and reproduce your report. Commit and push all project changes and use the commit message “HW 02 report - update to remove 999 outlier”. 
 
@@ -95,14 +96,14 @@ mydf$IQ[mydf$IQ == 999] <- 99 #setting to 99
 
 
 
-```{r kable, results='asis'}
+```{r kable, results='asis', include=FALSE}
 # Using knit R package (for practice)
 
 #creating summary variables for double checking
-far_mean <- round(mean((mydf$IQ[mydf$Smelter =="Far"])),2)
-far_sd <- round(sd((mydf$IQ[mydf$Smelter =="Far"])),2)
-near_mean <- round(mean((mydf$IQ[mydf$Smelter =="Near"])),2)
-near_sd <- round(sd((mydf$IQ[mydf$Smelter =="Near"])),2)
+far_mean <- round(mean((mydf$IQ[mydf$Smelter =="Far"])),1)
+far_sd <- round(sd((mydf$IQ[mydf$Smelter =="Far"])),1)
+near_mean <- round(mean((mydf$IQ[mydf$Smelter =="Near"])),1)
+near_sd <- round(sd((mydf$IQ[mydf$Smelter =="Near"])),1)
 
 # Calculate summary statistics by Smelter group
 iq_summary <- mydf %>%
@@ -122,8 +123,8 @@ kable(iq_summary, caption = "Summary Statistics of IQ Levels by Location Status"
 
 <!-- In-line calculations giving the values of the means, that will be updated if the data are changed (hint: use syntax `r `) -->
 
-Participants living farther from the smelter had a higher mean IQ 
-(Mean = `r far_mean`, SD = `r far_sd`) 
-compared to those living closer 
-(Mean = `r near_mean`, SD = `r near_sd`).
+## Participants living farther from the smelter had a higher mean IQ (Mean = `r far_mean`, SD = `r far_sd`) compared to those living closer(Mean = `r near_mean`, SD = `r near_sd`).
+
+
+
 
