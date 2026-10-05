@@ -1,0 +1,41 @@
+---
+title: "R Markdown First Assignment"
+author: "Mirella Castaneda"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Your document must be knit-able to Word, PDF, or HTML, and output must contain at least the following elements:
+
+    A graph showing the IQ levels by location status
+    At least one nicely formatted table (hint: try the 'kable' function in the knitr R package or one of the popular table R packages like tableone, table1, or gtsummary)
+    A couple sentences of text (not on the graph, but in the body of the R Markdown document) describing the graph and the table
+    In-line calculations giving the values of the means, that will be updated if the data are changed (hint: use syntax `r `)
+    At least one R code chunk.
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
