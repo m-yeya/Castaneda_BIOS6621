@@ -72,8 +72,23 @@ table1(~ IQ | Smelter, data = mydf)
 ```
 
 
-### The bar chart shows the total summed IQ levels categorized by the proximity to the smelter (far vs near), where IQ levels appear overall lower closer to the smelter. Table 1 details the summary statistics for each group across the sample of 124 participants. Participants living farther from the smelter had a higher mean IQ (mean=106,SD=112) compared to those living closer(near) the smelter (mean=89.2,SD=12.2).
+### The current bar chart shows the total summed IQ levels categorized by the proximity to the smelter (far vs near), where IQ levels appear overall lower closer to the smelter. Currently table 1 details the summary statistics for each group across the sample of 124 participants. Participants living farther from the smelter had a higher mean IQ (mean=106,SD=112) compared to those living closer(near) the smelter (mean=89.2,SD=12.2).
 
+
+
+
+```{r update}
+# 3.	After a brief conversation with the primary investigator, that you find out one individual who had an IQ value of “999” was in fact supposed to have a value of “99”. Make the change to this observation in a code chunk, and reproduce your report. Commit and push all project changes and use the commit message “HW 02 report - update to remove 999 outlier”. 
+
+
+# Fixing 999 outlier
+
+mydf$IQ == 999 #looking for outlier
+
+mydf$IQ[mydf$IQ == 999] <- 99 #setting to 99
+
+
+```
 
 
 
@@ -82,20 +97,11 @@ table1(~ IQ | Smelter, data = mydf)
 ```{r kable, results='asis'}
 # Using knit R package (for practice)
 
-
+#creating summary variables for double checking
 far_mean <- round(mean((mydf$IQ[mydf$Smelter =="Far"])),2)
 far_sd <- round(sd((mydf$IQ[mydf$Smelter =="Far"])),2)
 near_mean <- round(mean((mydf$IQ[mydf$Smelter =="Near"])),2)
 near_sd <- round(sd((mydf$IQ[mydf$Smelter =="Near"])),2)
-
-table_list <- list(far_mean,far_sd,near_mean,near_sd)
-
-kable(table_list)
-
-  
-```
-
-```{r}
 
 # Calculate summary statistics by Smelter group
 iq_summary <- mydf %>%
@@ -111,8 +117,6 @@ iq_summary <- mydf %>%
 kable(iq_summary, caption = "Summary Statistics of IQ Levels by Location Status", align = "lccrr")
 
 ```
-
-
 
 
 <!-- In-line calculations giving the values of the means, that will be updated if the data are changed (hint: use syntax `r `) -->
