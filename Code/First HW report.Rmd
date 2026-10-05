@@ -10,32 +10,115 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-Your document must be knit-able to Word, PDF, or HTML, and output must contain at least the following elements:
+```{r}
+# Import libraries or install packages
 
-    A graph showing the IQ levels by location status
-    At least one nicely formatted table (hint: try the 'kable' function in the knitr R package or one of the popular table R packages like tableone, table1, or gtsummary)
-    A couple sentences of text (not on the graph, but in the body of the R Markdown document) describing the graph and the table
-    In-line calculations giving the values of the means, that will be updated if the data are changed (hint: use syntax `r `)
-    At least one R code chunk.
+#install.packages('tidyverse')
+library(tidyverse)
+library(knitr)
 
+#Installing other packages
 
+#install.packages("kableExtra")
+library('kableExtra')
 
-## R Markdown
+library(RColorBrewer)
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+#install.packages('tableone')
+library('tableone')
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+library('table1')
 
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+# Read in data
+
+mydf <- read_csv(file = file.choose())
+
+# Full view of data
+print(mydf, n=150)
+
+# Quick view 
+mydf
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r graph}
+
+# A graph showing the IQ levels by location status
+
+t <- ggplot(mydf)
+  
+
+t + geom_col(aes(Smelter, IQ)) +
+  labs(x = "Location Status", y = 'IQ Levels', 
+       title = "IQ Levels by Location Status")
+
+```
+
+
+
+```{r}
+# At least one nicely formatted table (hint: try the 'kable' function in the knitr R package or one of the popular table R packages like tableone, table1, or gtsummary)
+
+# Used table1 package
+
+label(mydf$IQ) <- 'IQ Levels'
+label(mydf$Smelter) <- 'Locations Status'
+table1(~ IQ | Smelter, data = mydf)
+
+```
+
+
+### The bar chart shows the total summed IQ levels categorized by the proximity to the smelter (far vs near), where IQ levels appear overall lower closer to the smelter. Table 1 details the summary statistics for each group across the sample of 124 participants. Participants living farther from the smelter had a higher mean IQ (mean=106,SD=112) compared to those living closer(near) the smelter (mean=89.2,SD=12.2).
+
+
+
+
+
+
+```{r kable, results='asis'}
+# Using knit R package (for practice)
+
+
+far_mean <- round(mean((mydf$IQ[mydf$Smelter =="Far"])),2)
+far_sd <- round(sd((mydf$IQ[mydf$Smelter =="Far"])),2)
+near_mean <- round(mean((mydf$IQ[mydf$Smelter =="Near"])),2)
+near_sd <- round(sd((mydf$IQ[mydf$Smelter =="Near"])),2)
+
+table_list <- list(far_mean,far_sd,near_mean,near_sd)
+
+kable(table_list)
+
+  
+```
+
+```{r}
+
+# Calculate summary statistics by Smelter group
+iq_summary <- mydf %>%
+  group_by(Smelter) %>%
+  summarize(
+    N = n(),
+    `Mean IQ` = round(mean(IQ, na.rm = TRUE), 1),
+    `SD IQ`   = round(sd(IQ, na.rm = TRUE), 1),
+    `Median IQ` = round(median(IQ, na.rm = TRUE), 1)
+  )
+
+# Output as a formatted table
+kable(iq_summary, caption = "Summary Statistics of IQ Levels by Location Status", align = "lccrr")
+
+```
+
+
+
+
+<!-- In-line calculations giving the values of the means, that will be updated if the data are changed (hint: use syntax `r `) -->
+
+Participants living farther from the smelter had a higher mean IQ 
+(Mean = `r far_mean`, SD = `r far_sd`) 
+compared to those living closer 
+(Mean = `r near_mean`, SD = `r near_sd`).
+
