@@ -1,0 +1,73 @@
+---
+title: "Data Check Assignment"
+author: "Mirella Castaneda"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# Import libraries or install packages
+
+#install.packages('tidyverse')
+library(tidyverse)
+library(knitr)
+
+#Installing other packages
+
+#install.packages("kableExtra")
+library('kableExtra')
+
+library(RColorBrewer)
+
+#install.packages('tableone')
+library('tableone')
+
+library('table1')
+
+```
+
+
+```{r}
+test <- read_csv( file = file.choose())
+
+spec(test)
+
+test
+
+```
+
+
+```{r}
+
+
+
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+
+
+
+
+
+

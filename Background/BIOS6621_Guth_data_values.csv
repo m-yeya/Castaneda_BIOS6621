@@ -1,0 +1,153 @@
+﻿Variable Values,,
+Value,,Label
+AAC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+CPC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+EC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+HAC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+ICAC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+MSK_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+NC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+OBG_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+OPC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+PC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+RCC_clinical_grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+AAC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+CPC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+EC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+HAC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+ICAC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+MSK_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+NC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+OBG_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+OPC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+PC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+RCC_Final_Course_Grade,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+OPC_Clin_Grade_Sub,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+OPC_Clin_Grade_Anes,0,Fail
+,1,Pass
+,2,High Pass
+,3,Honors
+,9,Pass with remediation
+URM,0,Non-URM
+,1,URM
+,3,Unknown
+URM_AAMC,0,Non-URiM
+,1,URiM
+,3,Unknown
+mstp,0,Non-MSTP student
+,1,MSTP student
+BL_Phase,1,Year 1
+,2,Year 2
+CVPR_Phase,1,Year 1
+,2,Year 2
+DD_Phase,1,Year 1
+,2,Year 2
+DEMS_Phase,1,Year 1
+,2,Year 2
+HB_Phase,1,Year 1
+,2,Year 2
+ID_Phase,1,Year 1
+,2,Year 2
+LC_Phase,1,Year 1
+,2,Year 2
+MM_Phase,1,Year 1
+,2,Year 2
+NS_Phase,1,Year 1
+,2,Year 2
+CR_level,0,Not Struggling
+,1,Borderline
+,2,Definite
+CR_yn,0,Not Struggling
+,1,Struggling
